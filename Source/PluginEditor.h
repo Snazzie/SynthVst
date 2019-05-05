@@ -13,6 +13,8 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
 #include "Oscillator.h"
+#include "Envelope.h"
+
 //==============================================================================
 /**
 */
@@ -33,17 +35,7 @@ private:
 	NewProjectAudioProcessor& processor;
 
 	Oscillator oscGui;
-
-	//Slider attackSlider;
-	//Slider releaseSlider;
-	//Slider decaySlider;
-	//Slider sustainSlider;
-
-	//ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> attackVal;
-	//ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> decayVal;
-	//ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> sustainVal;
-	//ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> releaseVal;
-
+	Envelope envelopeGui;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessorEditor)
 };
