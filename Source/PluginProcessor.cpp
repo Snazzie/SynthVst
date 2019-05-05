@@ -21,9 +21,15 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
 #endif
 		.withOutput("Output", AudioChannelSet::stereo(), true)
 #endif
-	)
-#endif
+	),
+
+	attackTime(0.1),
+	tree(*this, nullptr)
+	#endif
 {
+	NormalisableRange<float> attackparam(0.1, 5000);
+	tree.createAndAddParameter("attack", "Attack", "Attack", attackparam, 0.1, nullptr, nullptr);
+	tree.state = ValueTree("Foo");
 	int maxVoiceCount = 5;
 	mySynth.clearVoices();
 	for (int i = 0; i < maxVoiceCount; i++)
@@ -144,6 +150,14 @@ bool NewProjectAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts
 
 void NewProjectAudioProcessor::processBlock(AudioBuffer<float> & buffer, MidiBuffer & midiMessages)
 {
+	
+	for (int i = 0; i < mySynth.getNumVoices(); i++)
+	{
+		if ((myVoice = dynamic_cast<SynthVoice*>(mySynth.getVoice(i))))
+		{
+			myVoice->getParam(tree.getRawParameterValue("attack"));
+		}
+	}
 	buffer.clear();
 
 	mySynth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());

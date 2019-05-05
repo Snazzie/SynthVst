@@ -16,12 +16,13 @@
 //==============================================================================
 /**
 */
-class NewProjectAudioProcessorEditor : public AudioProcessorEditor
+class NewProjectAudioProcessorEditor : public AudioProcessorEditor, public Slider::Listener
 {
 public:
 	NewProjectAudioProcessorEditor(NewProjectAudioProcessor&);
 	~NewProjectAudioProcessorEditor();
 
+	void sliderValueChanged(Slider* slider) override;
 	//==============================================================================
 	void paint(Graphics&) override;
 	void resized() override;
@@ -31,7 +32,10 @@ private:
 	// access the processor object that created it.
 	NewProjectAudioProcessor& processor;
 
+	ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> sliderTree;
+
 	Slider gainSlider;
+	Slider attackSlider;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NewProjectAudioProcessorEditor)
 };
