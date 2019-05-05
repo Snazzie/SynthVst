@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="BCkIjg" name="NewProject" projectType="audioplug" jucerVersion="5.4.3"
+<JUCERPROJECT id="BCkIjg" name="MassR" projectType="audioplug" jucerVersion="5.4.3"
               pluginVST3Category="Generator,Instrument,Synth" cppLanguageStandard="latest"
-              companyName="MR" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn">
-  <MAINGROUP id="xjUTn7" name="NewProject">
+              companyName="MR" pluginCharacteristicsValue="pluginIsSynth" pluginFormats="buildStandalone,buildVST3">
+  <MAINGROUP id="xjUTn7" name="MassR">
     <GROUP id="{1B7DE971-2F67-A20C-5713-EA325230CFB9}" name="Source">
       <FILE id="ExDiiP" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

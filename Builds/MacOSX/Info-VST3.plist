@@ -8,11 +8,11 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.MR.NewProject</string>
+    <string>com.MR.MassR</string>
     <key>CFBundleName</key>
-    <string>NewProject</string>
+    <string>MassR</string>
     <key>CFBundleDisplayName</key>
-    <string>NewProject</string>
+    <string>MassR</string>
     <key>CFBundlePackageType</key>
     <string>BNDL</string>
     <key>CFBundleSignature</key>

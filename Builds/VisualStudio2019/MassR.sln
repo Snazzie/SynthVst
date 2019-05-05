@@ -1,17 +1,17 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2019
 
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewProject - Standalone Plugin", "NewProject_StandalonePlugin.vcxproj", "{B084AAFF-A728-D609-8EFB-6B890F16C279}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MassR - Standalone Plugin", "MassR_StandalonePlugin.vcxproj", "{B084AAFF-A728-D609-8EFB-6B890F16C279}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9CCB8F9F-991C-B35F-0550-C4EDA058ED25} = {9CCB8F9F-991C-B35F-0550-C4EDA058ED25}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewProject - VST3", "NewProject_VST3.vcxproj", "{91693CC9-6657-8EE1-75FF-D8EA5B70E73B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MassR - VST3", "MassR_VST3.vcxproj", "{91693CC9-6657-8EE1-75FF-D8EA5B70E73B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9CCB8F9F-991C-B35F-0550-C4EDA058ED25} = {9CCB8F9F-991C-B35F-0550-C4EDA058ED25}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NewProject - Shared Code", "NewProject_SharedCode.vcxproj", "{9CCB8F9F-991C-B35F-0550-C4EDA058ED25}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MassR - Shared Code", "MassR_SharedCode.vcxproj", "{9CCB8F9F-991C-B35F-0550-C4EDA058ED25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
