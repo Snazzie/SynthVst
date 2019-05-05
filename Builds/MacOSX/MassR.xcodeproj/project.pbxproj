@@ -105,6 +105,10 @@
 			isa = PBXBuildFile;
 			fileRef = 874945D07F6AA8DB3B0809BF;
 		};
+		63C43A11260AAC7C81C5F4DC = {
+			isa = PBXBuildFile;
+			fileRef = CEBB2CFE425E5DFC5AAA5966;
+		};
 		89F6B791991EBD8FA1AADF3C = {
 			isa = PBXBuildFile;
 			fileRef = 224BC6BB626FBA51E167DDDC;
@@ -510,6 +514,13 @@
 			path = "../../JuceLibraryCode/include_juce_data_structures.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		A3E7707F579647D2DC706F6A = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = Oscillator.h;
+			path = ../../Source/Oscillator.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		A6620680EDB089889A9FDA7C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -627,6 +638,13 @@
 			lastKnownFileType = file;
 			name = "juce_audio_processors";
 			path = "../../../../../../JUCE/modules/juce_audio_processors";
+			sourceTree = "SOURCE_ROOT";
+		};
+		CEBB2CFE425E5DFC5AAA5966 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = Oscillator.cpp;
+			path = ../../Source/Oscillator.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
 		D2B5937A4D88A579DC4C5AA8 = {
@@ -766,6 +784,8 @@
 		FC69956C04AA17D84020FD8E = {
 			isa = PBXGroup;
 			children = (
+				CEBB2CFE425E5DFC5AAA5966,
+				A3E7707F579647D2DC706F6A,
 				224BC6BB626FBA51E167DDDC,
 				CAE4B7F33B5F5603CFF8D912,
 				44594314119362CB327AD1C3,
@@ -1456,6 +1476,7 @@
 				71E17052800E7AF55E587CDE,
 				E237764B00B43D45C111C2DA,
 				F101462FCE0E2ADA9548CA0D,
+				63C43A11260AAC7C81C5F4DC,
 				89F6B791991EBD8FA1AADF3C,
 				4D945DA77105E7A8633E0EC7,
 				76491C70564200D10A8A6E48,

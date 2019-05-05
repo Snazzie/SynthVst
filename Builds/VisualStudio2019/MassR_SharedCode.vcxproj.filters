@@ -444,6 +444,9 @@
     <ClCompile Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\stb_vorbis.c">
       <Filter>MassR\Maximilian-master</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Oscillator.cpp">
+      <Filter>MassR\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>MassR\Source</Filter>
     </ClCompile>
@@ -2311,6 +2314,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\stb_vorbis.h">
       <Filter>MassR\Maximilian-master</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Oscillator.h">
+      <Filter>MassR\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SynthSound.h">
       <Filter>MassR\Source</Filter>

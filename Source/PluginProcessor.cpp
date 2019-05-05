@@ -37,7 +37,11 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
 	tree.createAndAddParameter("decay", "Decay", "decay", decayParam, 1.0f, nullptr, nullptr);
 	tree.createAndAddParameter("sustain", "Sustain", "sustain", sustainParam, 0.8f, nullptr, nullptr);
 	tree.createAndAddParameter("release", "Release", "release", releaseParam, 0.1f, nullptr, nullptr);
-	
+
+	NormalisableRange<float> waveTypeParam(0, 2);
+
+	tree.createAndAddParameter("waveType", "Wavetype", "waveType", waveTypeParam, 0, nullptr, nullptr);
+
 	tree.state = ValueTree("Foo");
 
 
@@ -175,6 +179,8 @@ void NewProjectAudioProcessor::processBlock(AudioBuffer<float> & buffer, MidiBuf
 				tree.getRawParameterValue("decay"),
 				tree.getRawParameterValue("sustain"),
 				tree.getRawParameterValue("release"));
+
+			myVoice->setOscType(tree.getRawParameterValue("waveType"));
 		}
 	}
 	buffer.clear();

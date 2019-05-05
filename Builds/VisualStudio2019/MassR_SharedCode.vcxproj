@@ -132,6 +132,7 @@
     <ClCompile Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\main.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\maximilian.cpp" />
     <ClCompile Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\stb_vorbis.c" />
+    <ClCompile Include="..\..\Source\Oscillator.cpp" />
     <ClCompile Include="..\..\Source\PluginProcessor.cpp" />
     <ClCompile Include="..\..\Source\PluginEditor.cpp" />
     <ClCompile Include="..\..\..\..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -1964,6 +1965,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\maximilian.h" />
     <ClInclude Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\stb_vorbis.h" />
+    <ClInclude Include="..\..\Source\Oscillator.h" />
     <ClInclude Include="..\..\Source\SynthSound.h" />
     <ClInclude Include="..\..\Source\PluginProcessor.h" />
     <ClInclude Include="..\..\Source\SynthVoice.h" />

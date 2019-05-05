@@ -31,6 +31,8 @@
       <FILE id="qL1CYB" name="stb_vorbis.h" compile="0" resource="0" file="../../../../Downloads/Maximilian-master/Maximilian-master/stb_vorbis.h"/>
     </GROUP>
     <GROUP id="{1B7DE971-2F67-A20C-5713-EA325230CFB9}" name="Source">
+      <FILE id="p3gYCL" name="Oscillator.cpp" compile="1" resource="0" file="Source/Oscillator.cpp"/>
+      <FILE id="vrfHaF" name="Oscillator.h" compile="0" resource="0" file="Source/Oscillator.h"/>
       <FILE id="ExDiiP" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="n41eGw" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
