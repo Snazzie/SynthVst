@@ -19,9 +19,13 @@ public:
 	{
 		return dynamic_cast<SynthSound*>(sound) != nullptr;
 	}
-	void getParam(float* attack)
+
+	void getEnvelopeParams(float* attack, float* decay, float* sustain, float* release)
 	{
 		env1.setAttack(*attack);
+		env1.setDecay(*decay);
+		env1.setSustain(*sustain);
+		env1.setRelease(*release);
 	}
 
 	void startNote(int midiNoteNumber, float velocity, SynthesiserSound* sound, int currentPitchWheelPosition) override
@@ -30,6 +34,7 @@ public:
 		frequency = MidiMessage::getMidiNoteInHertz(midiNoteNumber);
 		level = velocity;
 	}
+
 	void stopNote(float velocity, bool allowTailOff) override
 	{
 		env1.trigger = 0;
@@ -39,21 +44,16 @@ public:
 		if (velocity == 0)
 			clearCurrentNote();
 	}
+
 	void pitchWheelMoved(int newPitchWheelValue) override {}
 	void controllerMoved(int controllerNumber, int newControllerValue) override {}
 	void renderNextBlock(AudioBuffer<float> & outputBuffer, int startSample, int numSamples) override
 	{
-
-		env1.setDecay(500);
-		env1.setSustain(0.8);
-		env1.setRelease(2000.0);
-
-
 		for (int sample = 0; sample < numSamples; ++sample)
 		{
 			double theWave = osc1.sinewave(frequency);
 			double theSound = env1.adsr(theWave, env1.trigger) * level;
-			double filteredSound = filter1.lores(theSound, 40, 0.1);
+
 			for (int channel = 0; channel < outputBuffer.getNumChannels(); ++channel)
 			{
 				outputBuffer.addSample(channel, startSample, theSound);
@@ -68,5 +68,4 @@ private:
 
 	maxiOsc osc1;
 	maxiEnv env1;
-	maxiFilter filter1;
 };

@@ -23,19 +23,32 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
 #endif
 	),
 
-	attackTime(0.1),
 	tree(*this, nullptr)
-	#endif
+#endif
 {
-	NormalisableRange<float> attackparam(0.1, 5000);
-	tree.createAndAddParameter("attack", "Attack", "Attack", attackparam, 0.1, nullptr, nullptr);
+	//need these normalisable range objects for the tree state below this
+	NormalisableRange<float> attackParam(0.1f, 5000.0f);
+	NormalisableRange<float> decayParam(1.0f, 2000.0f);
+	NormalisableRange<float> sustainParam(0.0f, 1.0f);
+	NormalisableRange<float> releaseParam(0.1f, 5000.0f);
+
+	//params that make it possible to set/get states and automate parameters in your DAW.  Also connects values between the slider and the values here
+	tree.createAndAddParameter("attack", "Attack", "attack", attackParam, 0.1f, nullptr, nullptr);
+	tree.createAndAddParameter("decay", "Decay", "decay", decayParam, 1.0f, nullptr, nullptr);
+	tree.createAndAddParameter("sustain", "Sustain", "sustain", sustainParam, 0.8f, nullptr, nullptr);
+	tree.createAndAddParameter("release", "Release", "release", releaseParam, 0.1f, nullptr, nullptr);
+	
 	tree.state = ValueTree("Foo");
-	int maxVoiceCount = 5;
+
+
 	mySynth.clearVoices();
+
+	int maxVoiceCount = 5;
 	for (int i = 0; i < maxVoiceCount; i++)
 	{
 		mySynth.addVoice(new SynthVoice());
 	}
+
 	mySynth.clearSounds();
 	mySynth.addSound(new SynthSound());
 }
@@ -150,12 +163,18 @@ bool NewProjectAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts
 
 void NewProjectAudioProcessor::processBlock(AudioBuffer<float> & buffer, MidiBuffer & midiMessages)
 {
-	
+	ScopedNoDenormals noDenormals;
+	//get the voice and get the params needed to make the voice
 	for (int i = 0; i < mySynth.getNumVoices(); i++)
 	{
+		//if myVoice sucessfully casts as a SynthVoice*, get the voice and set the params
 		if ((myVoice = dynamic_cast<SynthVoice*>(mySynth.getVoice(i))))
 		{
-			myVoice->getParam(tree.getRawParameterValue("attack"));
+			myVoice->getEnvelopeParams(
+				tree.getRawParameterValue("attack"),
+				tree.getRawParameterValue("decay"),
+				tree.getRawParameterValue("sustain"),
+				tree.getRawParameterValue("release"));
 		}
 	}
 	buffer.clear();
