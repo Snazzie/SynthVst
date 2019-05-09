@@ -19,39 +19,43 @@ Envelope::Envelope(NewProjectAudioProcessor& p) : processor(p)
 	// initialise any special settings that your component needs.
 		//slider initialization values
 
-	attackSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
-	attackSlider.setRange(0.1f, 5000.0f);
-	attackSlider.setValue(0.1f);
-	attackSlider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
-	attackSlider.addListener(this);
+	attackSlider.slider.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+	attackSlider.slider.setRange(0.1f, 5000.0f);
+	attackSlider.slider.setValue(0.1f);
+	attackSlider.slider.setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+	attackSlider.slider.addListener(this);
+	attackSlider.label.setText("Attack", NotificationType::dontSendNotification);
 	addAndMakeVisible(&attackSlider);
 
-	decaySlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
-	decaySlider.setRange(1.0f, 2000.0f);
-	decaySlider.setValue(1.0f);
-	decaySlider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
-	decaySlider.addListener(this);
+	decaySlider.slider.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+	decaySlider.slider.setRange(1.0f, 2000.0f);
+	decaySlider.slider.setValue(1.0f);
+	decaySlider.slider.setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+	decaySlider.slider.addListener(this);
+	decaySlider.label.setText("Decay", NotificationType::dontSendNotification);
 	addAndMakeVisible(&decaySlider);
 
-	sustainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
-	sustainSlider.setRange(0.0f, 1.0f);
-	sustainSlider.setValue(0.8f);
-	sustainSlider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
-	sustainSlider.addListener(this);
+	sustainSlider.slider.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+	sustainSlider.slider.setRange(0.0f, 1.0f);
+	sustainSlider.slider.setValue(0.8f);
+	sustainSlider.slider.setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+	sustainSlider.slider.addListener(this);
+	sustainSlider.label.setText("Sustain", NotificationType::dontSendNotification);
 	addAndMakeVisible(&sustainSlider);
 
-	releaseSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
-	releaseSlider.setRange(0.1f, 5000.0f);
-	releaseSlider.setValue(0.8f);
-	releaseSlider.setTextBoxStyle(Slider::NoTextBox, true, 0, 0);
-	releaseSlider.addListener(this);
+	releaseSlider.slider.setSliderStyle(Slider::SliderStyle::RotaryVerticalDrag);
+	releaseSlider.slider.setRange(0.1f, 5000.0f);
+	releaseSlider.slider.setValue(0.8f);
+	releaseSlider.slider.setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+	releaseSlider.slider.addListener(this);
+	releaseSlider.label.setText("release", NotificationType::dontSendNotification);
 	addAndMakeVisible(&releaseSlider);
 
 	//sends value of the sliders to the tree state in the processor
-	attackVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "attack", attackSlider);
-	decayVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "decay", decaySlider);
-	sustainVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "sustain", sustainSlider);
-	releaseVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "release", releaseSlider);
+	attackVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "attack", attackSlider.slider);
+	decayVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "decay", decaySlider.slider);
+	sustainVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "sustain", sustainSlider.slider);
+	releaseVal = new AudioProcessorValueTreeState::SliderAttachment(processor.tree, "release", releaseSlider.slider);
 }
 
 void Envelope::sliderValueChanged(Slider* slider)
@@ -79,11 +83,16 @@ void Envelope::resized()
 	// This method is where you should set the bounds of any child
 	// components that your component contains..
 
-	Rectangle<int> area = getLocalBounds().reduced(40, 40);
+	Rectangle<int> area = getLocalBounds().reduced(20, 20);
+	
+	float SizeX = attackSlider.getX();
+	float SizeY = attackSlider.getY();
+	float bottom = area.removeFromBottom(0).getY()-80;
+	float left = area.removeFromLeft(0).getX();
+	attackSlider.setBounds(left, bottom, 100, 100);
 
-	attackSlider.setBounds(10, 10, 40, 100);
-	decaySlider.setBounds(60, 10, 40, 100);
-	sustainSlider.setBounds(110, 10, 40, 100);
-	releaseSlider.setBounds(160, 10, 40, 100);
+	decaySlider.setBounds(left + 80, bottom, 100, 100);
+	sustainSlider.setBounds(left + (80 *2), bottom, 100, 100);
+	releaseSlider.setBounds(left + (80 * 3), bottom, 100, 100);
 
 }

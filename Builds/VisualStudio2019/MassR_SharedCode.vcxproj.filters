@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="MassR\CustomControls">
+      <UniqueIdentifier>{B361A52A-E2BC-CABD-B554-D5AB2B6B785A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="MassR\Maximilian-master">
       <UniqueIdentifier>{EB152D48-1667-02E0-00E5-D6C06DB70B20}</UniqueIdentifier>
     </Filter>
@@ -2436,6 +2439,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CustomControls\SliderWithLabel.h">
+      <Filter>MassR\CustomControls</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\maximilian.h">
       <Filter>MassR\Maximilian-master</Filter>
     </ClInclude>

@@ -1971,6 +1971,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_opengl.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CustomControls\SliderWithLabel.h"/>
     <ClInclude Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\maximilian.h"/>
     <ClInclude Include="..\..\..\..\..\..\Downloads\Maximilian-master\Maximilian-master\stb_vorbis.h"/>
     <ClInclude Include="..\..\Source\Envelope.h"/>

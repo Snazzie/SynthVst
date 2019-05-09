@@ -25,7 +25,7 @@ NewProjectAudioProcessorEditor::NewProjectAudioProcessorEditor(NewProjectAudioPr
 {
 	// Make sure that before the constructor has finished, you've set the
 	// editor's size to whatever you need it to be.
-	setSize(400, 300);
+	setSize(1200, 800);
 
 	addAndMakeVisible(oscGui, 1);
 	addAndMakeVisible(envelopeGui, 1);
@@ -64,7 +64,7 @@ void NewProjectAudioProcessorEditor::resized()
 	const int componentHeight = 200;
 
 	oscGui.setBounds(area.removeFromLeft(componentWidth).removeFromTop(componentHeight));
-
-	envelopeGui.setBounds(area.removeFromLeft(componentWidth).removeFromTop(componentHeight));
+	var bottom = area.removeFromBottom(0).getY();
+	envelopeGui.setBounds(area.removeFromLeft(400).removeFromBottom(200));
 }
 

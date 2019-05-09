@@ -5,6 +5,10 @@
               companyName="MR" pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginFormats="buildStandalone,buildVST3">
   <MAINGROUP id="xjUTn7" name="MassR">
+    <GROUP id="{36DCF39B-D279-E61B-2E30-5296F9834670}" name="CustomControls">
+      <FILE id="Nfk5cg" name="SliderWithLabel.h" compile="0" resource="0"
+            file="CustomControls/SliderWithLabel.h"/>
+    </GROUP>
     <GROUP id="{4D75954C-BA32-82A1-F8A0-F792D185267C}" name="Maximilian-master">
       <FILE id="TujEv2" name="main.cpp" compile="1" resource="0" file="../../../../Downloads/Maximilian-master/Maximilian-master/main.cpp"/>
       <FILE id="iFgUzZ" name="maximilian.cpp" compile="1" resource="0" file="../../../../Downloads/Maximilian-master/Maximilian-master/maximilian.cpp"/>

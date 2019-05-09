@@ -12,7 +12,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
-
+#include "../CustomControls/SliderWithLabel.h"
 
 
 //==============================================================================
@@ -34,10 +34,10 @@ private:
 	NewProjectAudioProcessor& processor;
 
 
-	Slider attackSlider;
-Slider releaseSlider;
-Slider decaySlider;
-Slider sustainSlider;
+	SliderWithLabel attackSlider;
+	SliderWithLabel releaseSlider;
+	SliderWithLabel decaySlider;
+	SliderWithLabel sustainSlider;
 
 ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> attackVal;
 ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> decayVal;

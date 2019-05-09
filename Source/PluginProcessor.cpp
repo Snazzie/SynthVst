@@ -47,7 +47,7 @@ NewProjectAudioProcessor::NewProjectAudioProcessor()
 
 	mySynth.clearVoices();
 
-	int maxVoiceCount = 5;
+	int maxVoiceCount = 75;
 	for (int i = 0; i < maxVoiceCount; i++)
 	{
 		mySynth.addVoice(new SynthVoice());

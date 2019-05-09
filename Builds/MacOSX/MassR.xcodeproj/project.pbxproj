@@ -539,6 +539,13 @@
 			path = ../../Source/Oscillator.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		D1FB90BB25F4E5AA8C74C762 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = SliderWithLabel.h;
+			path = ../../CustomControls/SliderWithLabel.h;
+			sourceTree = "SOURCE_ROOT";
+		};
 		D2B5937A4D88A579DC4C5AA8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -623,6 +630,14 @@
 			path = System/Library/Frameworks/IOKit.framework;
 			sourceTree = SDKROOT;
 		};
+		3FBE367707BC4ACD38C42104 = {
+			isa = PBXGroup;
+			children = (
+				D1FB90BB25F4E5AA8C74C762,
+			);
+			name = CustomControls;
+			sourceTree = "<group>";
+		};
 		1202CB81CA5A2A66F668FC71 = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +670,7 @@
 		8332A19AB9055538727F80F7 = {
 			isa = PBXGroup;
 			children = (
+				3FBE367707BC4ACD38C42104,
 				1202CB81CA5A2A66F668FC71,
 				FC69956C04AA17D84020FD8E,
 			);
